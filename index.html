@@ -1,1 +1,460 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خدمات سيف الدين للعمل</title>
 
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Tahoma,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+}
+header{
+  background:#fff;
+  padding:18px 16px;
+  box-shadow:0 2px 10px #00000012;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.logo{
+  font-size:22px;
+  font-weight:bold;
+  color:#1261d6;
+}
+.logo span{color:#d71920}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:18px 14px 80px;
+}
+.hero{
+  background:linear-gradient(135deg,#1261d6,#174ca8);
+  color:white;
+  border-radius:22px;
+  padding:25px 20px;
+  margin-bottom:20px;
+}
+.hero h1{margin:0 0 10px;font-size:27px}
+.hero p{margin:0 0 20px;line-height:1.7}
+.search{
+  background:white;
+  padding:10px;
+  border-radius:14px;
+  display:flex;
+  gap:8px;
+}
+.search input{
+  flex:1;
+  border:0;
+  outline:0;
+  font-size:16px;
+  padding:10px;
+}
+.search button{
+  border:0;
+  background:#d71920;
+  color:white;
+  border-radius:10px;
+  padding:0 18px;
+  font-size:16px;
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:20px;
+}
+.stat{
+  background:white;
+  padding:16px 8px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 2px 8px #0000000d;
+}
+.stat b{
+  display:block;
+  font-size:24px;
+  color:#1261d6;
+}
+.stat small{color:#666}
+h2{font-size:21px}
+.categories{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+.cat{
+  background:white;
+  border:1px solid #e2e6ed;
+  border-radius:15px;
+  padding:17px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.cat:hover{border-color:#1261d6}
+.services{margin-top:25px}
+.card{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  margin:12px 0;
+  box-shadow:0 2px 10px #00000010;
+}
+.card h3{margin:0 0 8px}
+.badge{
+  display:inline-block;
+  background:#eaf2ff;
+  color:#1261d6;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:13px;
+}
+.info{
+  color:#666;
+  line-height:1.8;
+  font-size:14px;
+}
+.actions{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+}
+.btn{
+  border:0;
+  border-radius:10px;
+  padding:11px 15px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.primary{background:#1261d6;color:white}
+.red{background:#d71920;color:white}
+.white{background:#f0f2f5;color:#333}
+nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  border-top:1px solid #ddd;
+  display:flex;
+  justify-content:space-around;
+  padding:9px 4px;
+  z-index:20;
+}
+nav button{
+  background:none;
+  border:0;
+  font-size:12px;
+  color:#555;
+}
+nav button b{
+  display:block;
+  font-size:20px;
+}
+.page{display:none}
+.page.active{display:block}
+form{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+}
+label{
+  display:block;
+  margin:12px 0 6px;
+  font-weight:bold;
+}
+input,textarea,select{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:15px;
+}
+textarea{min-height:110px}
+form button{margin-top:15px;width:100%}
+.empty{
+  background:white;
+  padding:30px;
+  text-align:center;
+  border-radius:18px;
+  color:#777;
+}
+footer{
+  text-align:center;
+  color:#888;
+  margin-top:30px;
+  font-size:13px;
+}
+@media(max-width:500px){
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .stat b{font-size:20px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">خدمات <span>سيف الدين</span> للعمل</div>
+</header>
+
+<div class="container">
+
+<!-- الرئيسية -->
+<section id="home" class="page active">
+
+<div class="hero">
+  <h1>خدماتك أقرب مما تتوقع 🚀</h1>
+  <p>منصة محلية لربط أصحاب الخدمات بالزبائن في الجزائر بسهولة وسرعة.</p>
+
+  <div class="search">
+    <input id="searchInput" placeholder="ابحث عن خدمة...">
+    <button onclick="searchServices()">بحث</button>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <b id="serviceCount">0</b>
+    <small>خدمة</small>
+  </div>
+  <div class="stat">
+    <b>🇩🇿</b>
+    <small>الجزائر</small>
+  </div>
+  <div class="stat">
+    <b>24/7</b>
+    <small>متاح</small>
+  </div>
+</div>
+
+<h2>الخدمات</h2>
+
+<div class="categories">
+  <div class="cat" onclick="filterCategory('تصليح')">🔧 تصليح وصيانة</div>
+  <div class="cat" onclick="filterCategory('نقل')">🚚 نقل وتوصيل</div>
+  <div class="cat" onclick="filterCategory('تنظيف')">🧹 تنظيف</div>
+  <div class="cat" onclick="filterCategory('تصميم')">🎨 تصميم</div>
+  <div class="cat" onclick="filterCategory('دروس')">📚 دروس</div>
+  <div class="cat" onclick="filterCategory('أخرى')">➕ خدمات أخرى</div>
+</div>
+
+<div class="services">
+  <h2>أحدث الخدمات</h2>
+  <div id="servicesList"></div>
+</div>
+
+</section>
+
+<!-- البحث -->
+<section id="search" class="page">
+<h2>🔎 البحث عن خدمة</h2>
+<div class="card">
+<input id="searchPageInput" placeholder="اكتب اسم الخدمة أو المجال">
+<button class="btn primary" onclick="searchFromPage()">بحث</button>
+</div>
+<div id="searchResults"></div>
+</section>
+
+<!-- نشر خدمة -->
+<section id="publish" class="page">
+<h2>➕ نشر خدمة</h2>
+
+<form onsubmit="addService(event)">
+
+<label>اسم الخدمة</label>
+<input id="title" required placeholder="مثال: تصليح الهواتف">
+
+<label>اسم مقدم الخدمة</label>
+<input id="provider" required placeholder="اسمك">
+
+<label>الفئة</label>
+<select id="category">
+<option>تصليح</option>
+<option>نقل</option>
+<option>تنظيف</option>
+<option>تصميم</option>
+<option>دروس</option>
+<option>أخرى</option>
+</select>
+
+<label>الولاية / المنطقة</label>
+<input id="location" required placeholder="مثال: بومرداس">
+
+<label>السعر</label>
+<input id="price" placeholder="مثال: ابتداءً من 1000 دج">
+
+<label>رقم الهاتف</label>
+<input id="phone" required type="tel" placeholder="05xxxxxxxx">
+
+<label>وصف الخدمة</label>
+<textarea id="description" placeholder="اكتب تفاصيل خدمتك"></textarea>
+
+<button class="btn primary" type="submit">نشر الخدمة</button>
+
+</form>
+</section>
+
+<!-- حسابي -->
+<section id="account" class="page">
+<h2>👤 حسابي</h2>
+
+<div class="card">
+<h3>حساب مقدم خدمة</h3>
+<p class="info">يمكنك نشر خدماتك والتواصل مع الزبائن مباشرة.</p>
+<button class="btn primary" onclick="showPage('publish')">
+نشر خدمة جديدة
+</button>
+</div>
+</section>
+
+<footer>
+خدمات سيف الدين للعمل © 2026
+</footer>
+
+</div>
+
+<nav>
+<button onclick="showPage('home')"><b>🏠</b>الرئيسية</button>
+<button onclick="showPage('search')"><b>🔎</b>البحث</button>
+<button onclick="showPage('publish')"><b>➕</b>نشر خدمة</button>
+<button onclick="showPage('account')"><b>👤</b>حسابي</button>
+</nav>
+
+<script>
+
+let services = JSON.parse(localStorage.getItem("saifServices")) || [
+{
+ title:"تصميم إعلانات ومنشورات",
+ provider:"خدمات سيف الدين",
+ category:"تصميم",
+ location:"الجزائر",
+ price:"ابتداءً من 500 دج",
+ phone:"0550000000",
+ description:"تصميم منشورات وإعلانات للسوشيال ميديا."
+},
+{
+ title:"نقل وتوصيل داخل المنطقة",
+ provider:"خدمات محلية",
+ category:"نقل",
+ location:"بومرداس",
+ price:"حسب المسافة",
+ phone:"0550000000",
+ description:"خدمة نقل وتوصيل سريعة."
+}
+];
+
+function save(){
+ localStorage.setItem("saifServices",JSON.stringify(services));
+}
+
+function render(list=services, target="servicesList"){
+ const box=document.getElementById(target);
+ if(!box)return;
+
+ if(list.length===0){
+   box.innerHTML='<div class="empty">لا توجد خدمات حالياً.</div>';
+   return;
+ }
+
+ box.innerHTML=list.map((s,i)=>`
+ <div class="card">
+   <span class="badge">${s.category}</span>
+   <h3>${s.title}</h3>
+   <div class="info">
+   👤 ${s.provider}<br>
+   📍 ${s.location}<br>
+   💰 ${s.price}
+   </div>
+   <p>${s.description || ""}</p>
+   <div class="actions">
+    <a href="tel:${s.phone}">
+      <button class="btn primary">📞 اتصال</button>
+    </a>
+    <a href="https://wa.me/213${s.phone.replace(/^0/,'')}" target="_blank">
+      <button class="btn red">💬 واتساب</button>
+    </a>
+   </div>
+ </div>
+ `).join("");
+
+ document.getElementById("serviceCount").textContent=services.length;
+}
+
+function showPage(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ window.scrollTo(0,0);
+}
+
+function addService(e){
+ e.preventDefault();
+
+ const service={
+  title:document.getElementById("title").value,
+  provider:document.getElementById("provider").value,
+  category:document.getElementById("category").value,
+  location:document.getElementById("location").value,
+  price:document.getElementById("price").value || "السعر عند التواصل",
+  phone:document.getElementById("phone").value,
+  description:document.getElementById("description").value
+ };
+
+ services.unshift(service);
+ save();
+ render();
+
+ e.target.reset();
+
+ alert("تم نشر الخدمة بنجاح ✅");
+ showPage("home");
+}
+
+function filterCategory(category){
+ const result=services.filter(s=>s.category===category);
+ showPage("search");
+ document.getElementById("searchResults").innerHTML="";
+ render(result,"searchResults");
+}
+
+function searchServices(){
+ const q=document.getElementById("searchInput").value.trim().toLowerCase();
+
+ if(!q){
+   render();
+   return;
+ }
+
+ const result=services.filter(s=>
+   s.title.toLowerCase().includes(q) ||
+   s.category.toLowerCase().includes(q) ||
+   s.location.toLowerCase().includes(q)
+ );
+
+ render(result);
+}
+
+function searchFromPage(){
+ const q=document.getElementById("searchPageInput").value.trim().toLowerCase();
+
+ const result=services.filter(s=>
+   s.title.toLowerCase().includes(q) ||
+   s.category.toLowerCase().includes(q) ||
+   s.location.toLowerCase().includes(q) ||
+   s.provider.toLowerCase().includes(q)
+ );
+
+ render(result,"searchResults");
+}
+
+render();
+
+</script>
+
+</body>
+</html>
