@@ -3,974 +3,657 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>خدمات سيف الدين للعمل</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
-  margin:0;
   font-family:Arial,Tahoma,sans-serif;
   background:#f4f7fb;
   color:#172033;
+  min-height:100vh;
 }
 
-header{
-  background:#fff;
-  border-bottom:1px solid #e5e9f2;
-  padding:14px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:sticky;
-  top:0;
-  z-index:10;
+button,
+input,
+select,
+textarea{
+  font-family:inherit;
 }
 
-.logo{
-  font-size:22px;
-  font-weight:bold;
-  color:#0757c9;
-}
-
-.logo span{color:#d71920}
-
-.menu-btn{
-  display:none;
-  border:0;
-  background:#0757c9;
-  color:#fff;
-  padding:10px 13px;
-  border-radius:9px;
-  font-size:20px;
-}
-
-.layout{
-  display:flex;
-  min-height:calc(100vh - 65px);
-}
-
-.sidebar{
-  width:235px;
-  background:#fff;
-  border-left:1px solid #e5e9f2;
-  padding:20px 12px;
-}
-
-.sidebar button{
-  width:100%;
-  border:0;
-  background:transparent;
-  text-align:right;
-  padding:13px;
-  margin-bottom:5px;
-  border-radius:9px;
-  font-size:15px;
+button{
   cursor:pointer;
 }
 
-.sidebar button:hover,
-.sidebar button.active{
-  background:#eaf2ff;
-  color:#0757c9;
+/* الشريط العلوي */
+header{
+  background:#ffffff;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:20px;
+  font-weight:bold;
+  color:#0756a8;
+}
+
+.logo-icon{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:#0756a8;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+}
+
+.top-buttons{
+  display:flex;
+  gap:8px;
+}
+
+.top-btn{
+  border:0;
+  padding:10px 15px;
+  border-radius:10px;
+  background:#0756a8;
+  color:#fff;
   font-weight:bold;
 }
 
-main{
+.top-btn.red{
+  background:#c62828;
+}
+
+/* التخطيط */
+.layout{
+  display:flex;
+  min-height:calc(100vh - 70px);
+}
+
+/* القائمة الجانبية */
+.sidebar{
+  width:245px;
+  background:#ffffff;
+  border-left:1px solid #e6eaf0;
+  padding:20px 15px;
+}
+
+.menu-title{
+  color:#777;
+  font-size:13px;
+  margin:5px 10px 12px;
+}
+
+.menu{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.menu button{
+  width:100%;
+  border:0;
+  background:transparent;
+  padding:13px 15px;
+  border-radius:10px;
+  text-align:right;
+  font-size:15px;
+  color:#334155;
+  transition:.2s;
+}
+
+.menu button:hover,
+.menu button.active{
+  background:#eaf3ff;
+  color:#0756a8;
+  font-weight:bold;
+}
+
+/* المحتوى */
+.main{
   flex:1;
   padding:25px;
-  max-width:1200px;
+  max-width:1400px;
   margin:auto;
   width:100%;
 }
 
-.page{display:none}
-.page.active{display:block}
-
+/* الصفحة الرئيسية */
 .hero{
-  background:linear-gradient(135deg,#0757c9,#123c91);
+  background:linear-gradient(135deg,#0756a8,#123f75);
   color:white;
-  border-radius:18px;
-  padding:30px;
-  margin-bottom:22px;
+  border-radius:20px;
+  padding:35px;
+  margin-bottom:25px;
+  box-shadow:0 8px 25px rgba(7,86,168,.18);
 }
 
 .hero h1{
-  margin-top:0;
   font-size:30px;
+  margin-bottom:12px;
 }
 
 .hero p{
-  color:#e9f1ff;
+  font-size:16px;
   line-height:1.8;
+  opacity:.95;
 }
 
-.search{
+.hero-actions{
   display:flex;
+  flex-wrap:wrap;
   gap:10px;
-  margin-top:20px;
+  margin-top:22px;
 }
 
-.search input{
-  flex:1;
-  padding:14px;
+.hero-btn{
   border:0;
-  border-radius:9px;
-  font-size:15px;
-}
-
-.btn{
-  border:0;
-  padding:12px 18px;
-  border-radius:9px;
-  cursor:pointer;
+  border-radius:10px;
+  padding:13px 20px;
   font-weight:bold;
-  font-size:14px;
+  background:#ffffff;
+  color:#0756a8;
 }
 
-.blue{
-  background:#0757c9;
+.hero-btn.red{
+  background:#c62828;
   color:white;
 }
 
-.red{
-  background:#d71920;
-  color:white;
-}
-
-.green{
-  background:#159447;
-  color:white;
-}
-
-.gold{
-  background:#b88a16;
-  color:white;
-}
-
-.white{
-  background:#fff;
-  color:#0757c9;
-}
-
+/* الإحصائيات */
 .stats{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:15px;
   margin-bottom:25px;
 }
 
 .stat{
   background:white;
+  border-radius:15px;
   padding:22px;
-  border-radius:14px;
-  border:1px solid #e5e9f2;
+  box-shadow:0 3px 15px rgba(0,0,0,.06);
+  border-top:4px solid #0756a8;
 }
 
-.stat strong{
-  display:block;
+.stat:nth-child(2){
+  border-top-color:#c62828;
+}
+
+.stat:nth-child(3){
+  border-top-color:#16823b;
+}
+
+.stat:nth-child(4){
+  border-top-color:#b58a00;
+}
+
+.stat-number{
   font-size:28px;
-  margin-top:8px;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+.stat-label{
+  color:#687386;
+  font-size:14px;
+}
+
+/* البطاقات */
+.section{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:22px;
+  box-shadow:0 3px 15px rgba(0,0,0,.05);
 }
 
 .section-title{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  margin-bottom:15px;
+  justify-content:space-between;
+  margin-bottom:18px;
 }
 
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
+.section-title h2{
+  font-size:21px;
 }
 
-.card{
-  background:#fff;
-  border:1px solid #e4e8f0;
-  border-radius:14px;
-  padding:18px;
-  box-shadow:0 3px 12px rgba(0,0,0,.04);
-}
-
-.card h3{
-  margin-top:0;
-}
-
-.price{
-  color:#159447;
-  font-weight:bold;
-  font-size:19px;
-}
-
-.muted{
-  color:#697386;
+.section-title span{
+  color:#0756a8;
   font-size:14px;
 }
 
-.form-box{
-  background:#fff;
-  border-radius:15px;
-  padding:22px;
-  max-width:700px;
-  border:1px solid #e3e7ef;
+/* البحث */
+.search-box{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr auto;
+  gap:10px;
 }
 
-.form-group{
-  margin-bottom:15px;
-}
-
-.form-group label{
-  display:block;
-  margin-bottom:7px;
-  font-weight:bold;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select{
+.search-box input,
+.search-box select{
   width:100%;
   padding:13px;
-  border:1px solid #d8deea;
-  border-radius:8px;
-  font-size:15px;
-  font-family:inherit;
-}
+  border:1px solid #d9e0e8;<!-- ============================= -->
+<!-- المرحلة 2 : صفحات المنصة -->
+<!-- ============================= -->
 
-.form-group textarea{
-  min-height:120px;
-  resize:vertical;
-}
+<div id="appPages" style="display:none;">
 
-.auth{
-  max-width:450px;
-  margin:30px auto;
-}
-
-.auth-tabs{
-  display:flex;
-  gap:5px;
-  margin-bottom:15px;
-}
-
-.auth-tabs button{
-  flex:1;
-}
-
-.notice{
-  padding:13px;
-  border-radius:8px;
-  margin-bottom:15px;
-  display:none;
-}
-
-.success{
-  background:#e6f7ed;
-  color:#087535;
-}
-
-.error{
-  background:#fde8e8;
-  color:#a20d12;
-}
-
-.profile{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  margin-bottom:20px;
-}
-
-.avatar{
-  width:65px;
-  height:65px;
-  border-radius:50%;
-  background:#0757c9;
-  color:#fff;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:25px;
-  font-weight:bold;
-}
-
-.empty{
-  text-align:center;
-  background:#fff;
-  padding:35px;
-  border-radius:14px;
-  color:#687386;
-}
-
-footer{
-  text-align:center;
-  padding:25px;
-  color:#687386;
-  font-size:13px;
-}
-
-/* الهاتف */
-@media(max-width:800px){
-  .menu-btn{display:block}
-
-  .layout{display:block}
-
-  .sidebar{
-    display:none;
-    width:100%;
-    border-left:0;
-    border-bottom:1px solid #ddd;
-    padding:10px;
-  }
-
-  .sidebar.open{display:block}
-
-  main{padding:15px}
-
-  .stats{
-    grid-template-columns:1fr;
-  }
-
-  .cards{
-    grid-template-columns:1fr;
-  }
-
-  .search{
-    flex-direction:column;
-  }
-
-  .hero{
-    padding:22px;
-  }
-
-  .hero h1{
-    font-size:24px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="logo">خدمات <span>سيف الدين</span></div>
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-</header>
-
-<div class="layout">
-
-<aside class="sidebar" id="sidebar">
-
-  <button class="active" onclick="showPage('home',this)">🏠 الرئيسية</button>
-
-  <button onclick="showPage('services',this)">🔎 البحث عن الخدمات</button>
-
-  <button onclick="showPage('favorites',this)">❤️ المفضلة</button>
-
-  <button onclick="showPage('publish',this)">➕ نشر خدمة</button>
-
-  <button onclick="showPage('orders',this)">📋 طلباتي</button>
-
-  <button onclick="showPage('profile',this)">👤 حسابي</button>
-
-  <button onclick="showPage('login',this)">🔐 تسجيل الدخول</button>
-
-</aside>
-
-<main>
-
-<!-- الرئيسية -->
-<section id="home" class="page active">
-
-  <div class="hero">
-
-    <h1>خدمات سيف الدين للعمل</h1>
-
-    <p>
-      منصة محلية لعرض وطلب الخدمات بسهولة وسرعة.
-      ابحث عن شخص يقدم الخدمة التي تحتاجها أو انشر خدمتك وابدأ العمل.
-    </p>
-
-    <div class="search">
-      <input id="homeSearch" placeholder="ابحث عن خدمة...">
-      <button class="btn white" onclick="searchFromHome()">بحث 🔎</button>
+  <!-- صفحة البحث -->
+  <section class="section page-box" id="searchPage">
+    <div class="section-title">
+      <h2>🔎 البحث عن خدمة</h2>
     </div>
 
-  </div>
-
-  <div class="stats">
-
-    <div class="stat">
-      👨‍💼 مقدمو الخدمات
-      <strong id="providersCount">0</strong>
-    </div>
-
-    <div class="stat">
-      🛠️ الخدمات
-      <strong id="servicesCount">0</strong>
-    </div>
-
-    <div class="stat">
-      📋 الطلبات
-      <strong id="ordersCount">0</strong>
-    </div>
-
-  </div>
-
-  <div class="section-title">
-    <h2>الخدمات المتاحة</h2>
-    <button class="btn blue" onclick="showPage('services')">عرض الكل</button>
-  </div>
-
-  <div id="homeServices" class="cards"></div>
-
-</section>
-
-
-<!-- الخدمات -->
-<section id="services" class="page">
-
-  <div class="section-title">
-    <h2>البحث عن الخدمات</h2>
-  </div>
-
-  <div class="form-box" style="margin-bottom:20px">
-
-    <div class="form-group">
-      <label>ابحث</label>
-      <input id="serviceSearch" oninput="renderServices()" placeholder="مثال: تصميم، نقل، تنظيف...">
-    </div>
-
-    <div class="form-group">
-      <label>التصنيف</label>
-
-      <select id="serviceCategory" onchange="renderServices()">
-
-        <option value="">كل التصنيفات</option>
+    <div class="search-box">
+      <input id="pageSearchInput" type="text" placeholder="اكتب اسم الخدمة">
+      
+      <select id="pageCategory">
+        <option value="">كل الفئات</option>
         <option>تصميم</option>
-        <option>توصيل ونقل</option>
+        <option>كتابة</option>
+        <option>ترجمة</option>
         <option>صيانة</option>
+        <option>نقل</option>
         <option>تنظيف</option>
-        <option>تعليم</option>
-        <option>خدمات رقمية</option>
-        <option>أخرى</option>
-
+        <option>خدمات أخرى</option>
       </select>
 
-    </div>
-
-  </div>
-
-  <div id="servicesList" class="cards"></div>
-
-</section>
-
-
-<!-- المفضلة -->
-<section id="favorites" class="page">
-
-  <div class="section-title">
-    <h2>❤️ الخدمات المفضلة</h2>
-  </div>
-
-  <div id="favoritesList"></div>
-
-</section>
-
-
-<!-- نشر خدمة -->
-<section id="publish" class="page">
-
-  <div class="section-title">
-    <h2>➕ نشر خدمة جديدة</h2>
-  </div>
-
-  <div class="form-box">
-
-    <div id="publishNotice" class="notice"></div>
-
-    <div class="form-group">
-      <label>اسم الخدمة</label>
-      <input id="serviceTitle" placeholder="مثال: تصميم منشورات فيسبوك">
-    </div>
-
-    <div class="form-group">
-      <label>التصنيف</label>
-
-      <select id="serviceCat">
-
-        <option>تصميم</option>
-        <option>توصيل ونقل</option>
-        <option>صيانة</option>
-        <option>تنظيف</option>
-        <option>تعليم</option>
-        <option>خدمات رقمية</option>
-        <option>أخرى</option>
-
+      <select id="pageWilaya">
+        <option value="">كل الولايات</option>
+        <option>الجزائر</option>
+        <option>بومرداس</option>
+        <option>تيبازة</option>
+        <option>البليدة</option>
+        <option>وهران</option>
+        <option>قسنطينة</option>
+        <option>سطيف</option>
+        <option>عنابة</option>
       </select>
 
+      <button class="search-btn" onclick="searchServices()">
+        بحث
+      </button>
     </div>
 
-    <div class="form-group">
-      <label>السعر بالدينار الجزائري</label>
-      <input id="servicePrice" type="number" placeholder="مثال: 1500">
+    <div id="searchResults" style="margin-top:20px;"></div>
+  </section>
+
+
+  <!-- صفحة نشر خدمة -->
+  <section class="section page-box" id="publishPage">
+
+    <div class="section-title">
+      <h2>➕ نشر خدمة جديدة</h2>
     </div>
 
-    <div class="form-group">
-      <label>الولاية / المنطقة</label>
-      <input id="serviceLocation" placeholder="مثال: بومرداس">
+    <div style="display:grid;gap:12px;">
+
+      <input id="serviceTitle"
+             type="text"
+             placeholder="اسم الخدمة"
+             style="padding:14px;border:1px solid #d9e0e8;border-radius:10px;">
+
+      <select id="serviceCategory"
+              style="padding:14px;border:1px solid #d9e0e8;border-radius:10px;">
+        <option value="">اختر الفئة</option>
+        <option>تصميم</option>
+        <option>كتابة</option>
+        <option>ترجمة</option>
+        <option>صيانة</option>
+        <option>نقل</option>
+        <option>تنظيف</option>
+        <option>خدمات أخرى</option>
+      </select>
+
+      <select id="serviceWilaya"
+              style="padding:14px;border:1px solid #d9e0e8;border-radius:10px;">
+        <option value="">اختر الولاية</option>
+        <option>الجزائر</option>
+        <option>بومرداس</option>
+        <option>تيبازة</option>
+        <option>البليدة</option>
+        <option>وهران</option>
+        <option>قسنطينة</option>
+        <option>سطيف</option>
+        <option>عنابة</option>
+      </select>
+
+      <input id="servicePrice"
+             type="number"
+             placeholder="السعر بالدينار الجزائري"
+             style="padding:14px;border:1px solid #d9e0e8;border-radius:10px;">
+
+      <textarea id="serviceDescription"
+                placeholder="اكتب وصف الخدمة..."
+                style="padding:14px;border:1px solid #d9e0e8;border-radius:10px;min-height:130px;"></textarea>
+
+      <button onclick="publishService()"
+              style="border:0;background:#16823b;color:white;padding:14px;border-radius:10px;font-weight:bold;">
+        نشر الخدمة
+      </button>
+
     </div>
 
-    <div class="form-group">
-      <label>وصف الخدمة</label>
-      <textarea id="serviceDescription" placeholder="اكتب تفاصيل خدمتك..."></textarea>
+  </section>
+
+
+  <!-- صفحة الطلبات -->
+  <section class="section page-box" id="ordersPage">
+
+    <div class="section-title">
+      <h2>💼 طلباتي</h2>
     </div>
 
-    <button class="btn blue" onclick="publishService()">
-      نشر الخدمة
+    <div id="ordersList">
+      <p style="color:#687386;">
+        لا توجد طلبات حالياً.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- صفحة المفضلة -->
+  <section class="section page-box" id="favoritesPage">
+
+    <div class="section-title">
+      <h2>❤️ المفضلة</h2>
+    </div>
+
+    <div id="favoritesList">
+      <p style="color:#687386;">
+        لا توجد خدمات مفضلة حالياً.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- صفحة الإشعارات -->
+  <section class="section page-box" id="notificationsPage">
+
+    <div class="section-title">
+      <h2>🔔 الإشعارات</h2>
+    </div>
+
+    <div id="notificationsList">
+      <div style="padding:15px;background:#f4f7fb;border-radius:10px;">
+        لا توجد إشعارات جديدة.
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- صفحة الحساب -->
+  <section class="section page-box" id="accountPage">
+
+    <div class="section-title">
+      <h2>👤 حسابي</h2>
+    </div>
+
+    <div style="display:grid;gap:12px;">
+
+      <input id="userName"
+             type="text"
+             placeholder="الاسم"
+             style="padding:14px;border:1px solid #d9e0e8;border-radius:10px;">
+
+      <input id="userPhone"
+             type="tel"
+             placeholder="رقم الهاتف"
+             style="padding:14px;border:1px solid #d9e0e8;border-radius:10px;">
+
+      <input id="userCity"
+             type="text"
+             placeholder="المدينة"
+             style="padding:14px;border:1px solid #d9e0e8;border-radius:10px;">
+
+      <button onclick="saveAccount()"
+              style="border:0;background:#0756a8;color:white;padding:14px;border-radius:10px;font-weight:bold;">
+        حفظ معلومات الحساب
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- صفحة الإعدادات -->
+  <section class="section page-box" id="settingsPage">
+
+    <div class="section-title">
+      <h2>⚙️ الإعدادات</h2>
+    </div>
+
+    <div style="display:grid;gap:12px;">
+
+      <button onclick="clearData()"
+              style="border:0;background:#c62828;color:white;padding:14px;border-radius:10px;font-weight:bold;">
+        🗑️ حذف بيانات المنصة من هذا الهاتف
+      </button>
+
+      <div style="padding:15px;background:#f4f7fb;border-radius:10px;">
+        <strong>خدمات سيف الدين للعمل</strong>
+        <p style="margin-top:6px;color:#687386;">
+          منصة خدمات محلية في الجزائر.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<!-- تسجيل الدخول -->
+<div id="loginModal"
+     style="
+     display:none;
+     position:fixed;
+     inset:0;
+     background:rgba(0,0,0,.55);
+     z-index:999;
+     align-items:center;
+     justify-content:center;
+     padding:20px;
+     ">
+
+  <div style="
+       background:white;
+       width:100%;
+       max-width:420px;
+       border-radius:18px;
+       padding:25px;
+       box-shadow:0 15px 40px rgba(0,0,0,.2);
+       ">
+
+    <h2 style="margin-bottom:18px;">
+      👤 تسجيل الدخول
+    </h2>
+
+    <input id="loginName"
+           type="text"
+           placeholder="اسمك"
+           style="
+           width:100%;
+           padding:14px;
+           border:1px solid #d9e0e8;
+           border-radius:10px;
+           margin-bottom:10px;
+           ">
+
+    <input id="loginPhone"
+           type="tel"
+           placeholder="رقم الهاتف"
+           style="
+           width:100%;
+           padding:14px;
+           border:1px solid #d9e0e8;
+           border-radius:10px;
+           margin-bottom:15px;
+           ">
+
+    <button onclick="loginUser()"
+            style="
+            width:100%;
+            border:0;
+            background:#0756a8;
+            color:white;
+            padding:14px;
+            border-radius:10px;
+            font-weight:bold;
+            ">
+      دخول
+    </button>
+
+    <button onclick="closeLogin()"
+            style="
+            width:100%;
+            border:0;
+            background:#eee;
+            color:#333;
+            padding:12px;
+            border-radius:10px;
+            margin-top:8px;
+            ">
+      إلغاء
     </button>
 
   </div>
 
-</section>
-
-
-<!-- الطلبات -->
-<section id="orders" class="page">
-
-  <div class="section-title">
-    <h2>📋 طلباتي</h2>
-  </div>
-
-  <div id="ordersList"></div>
-
-</section>
-
-
-<!-- الحساب -->
-<section id="profile" class="page">
-
-  <div class="section-title">
-    <h2>👤 حسابي</h2>
-  </div>
-
-  <div id="profileContent"></div>
-
-</section>
-
-
-<!-- تسجيل الدخول -->
-<section id="login" class="page">
-
-  <div class="auth">
-
-    <div class="form-box">
-
-      <h2 style="text-align:center">🔐 خدمات سيف الدين</h2>
-
-      <div class="auth-tabs">
-
-        <button class="btn blue" onclick="showLoginForm()">دخول</button>
-
-        <button class="btn gold" onclick="showRegisterForm()">حساب جديد</button>
-
-      </div>
-
-      <div id="authNotice" class="notice"></div>
-
-      <!-- الدخول -->
-
-      <div id="loginForm">
-
-        <div class="form-group">
-          <label>البريد الإلكتروني</label>
-          <input id="loginEmail" type="email" placeholder="example@email.com">
-        </div>
-
-        <div class="form-group">
-          <label>كلمة المرور</label>
-          <input id="loginPassword" type="password" placeholder="كلمة المرور">
-        </div>
-
-        <button class="btn blue" style="width:100%" onclick="login()">
-          تسجيل الدخول
-        </button>
-
-      </div>
-
-
-      <!-- التسجيل -->
-
-      <div id="registerForm" style="display:none">
-
-        <div class="form-group">
-          <label>الاسم</label>
-          <input id="registerName" placeholder="اسمك">
-        </div>
-
-        <div class="form-group">
-          <label>البريد الإلكتروني</label>
-          <input id="registerEmail" type="email" placeholder="example@email.com">
-        </div>
-
-        <div class="form-group">
-          <label>كلمة المرور</label>
-          <input id="registerPassword" type="password" placeholder="6 أحرف على الأقل">
-        </div>
-
-        <button class="btn green" style="width:100%" onclick="register()">
-          إنشاء الحساب
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-</main>
 </div>
 
-
-<footer>
-  © 2026 خدمات سيف الدين للعمل — منصة خدمات محلية
-</footer>
-
+<!-- نهاية المرحلة 2 --><!-- ============================= -->
+<!-- المرحلة 3 : تشغيل المنصة -->
+<!-- ============================= -->
 
 <script>
 
-/* =========================
-   البيانات
-========================= */
-
-let services = JSON.parse(localStorage.getItem("saifServices")) || [
-
-  {
-    id:1,
-    title:"تصميم منشورات فيسبوك",
-    category:"تصميم",
-    price:1000,
-    location:"بومرداس",
-    description:"تصميم منشورات إعلانية احترافية للتجار وأصحاب المشاريع.",
-    provider:"خدمات سيف الدين"
-  },
-
-  {
-    id:2,
-    title:"توصيل ونقل داخل الولاية",
-    category:"توصيل ونقل",
-    price:1500,
-    location:"بومرداس",
-    description:"خدمة توصيل ونقل للأغراض والطلبات داخل المنطقة.",
-    provider:"مقدم خدمة محلي"
-  },
-
-  {
-    id:3,
-    title:"مساعدة في استعمال الهاتف",
-    category:"خدمات رقمية",
-    price:800,
-    location:"الجزائر",
-    description:"مساعدة في التطبيقات، الحسابات والخدمات الرقمية.",
-    provider:"مقدم خدمة"
-  }
-
-];
-
-let favorites = JSON.parse(localStorage.getItem("saifFavorites")) || [];
-
-let orders = JSON.parse(localStorage.getItem("saifOrders")) || [];
-
-let users = JSON.parse(localStorage.getItem("saifUsers")) || [];
-
-let currentUser = JSON.parse(localStorage.getItem("saifCurrentUser")) || null;
+let services = JSON.parse(localStorage.getItem("services")) || [];
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let account = JSON.parse(localStorage.getItem("account")) || null;
 
 
-/* =========================
-   حفظ البيانات
-========================= */
-
-function saveData(){
-
-  localStorage.setItem("saifServices",JSON.stringify(services));
-
-  localStorage.setItem("saifFavorites",JSON.stringify(favorites));
-
-  localStorage.setItem("saifOrders",JSON.stringify(orders));
-
-  localStorage.setItem("saifUsers",JSON.stringify(users));
-
-  localStorage.setItem("saifCurrentUser",JSON.stringify(currentUser));
-
+/* فتح تسجيل الدخول */
+function openLogin(){
+  document.getElementById("loginModal").style.display = "flex";
 }
 
 
-/* =========================
-   التنقل
-========================= */
-
-function showPage(page,button){
-
-  document.querySelectorAll(".page").forEach(function(p){
-
-    p.classList.remove("active");
-
-  });
-
-  const selected=document.getElementById(page);
-
-  if(selected){
-    selected.classList.add("active");
-  }
-
-  document.querySelectorAll(".sidebar button").forEach(function(b){
-
-    b.classList.remove("active");
-
-  });
-
-  if(button){
-    button.classList.add("active");
-  }
-
-  document.getElementById("sidebar").classList.remove("open");
-
-  renderAll();
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
+/* إغلاق تسجيل الدخول */
+function closeLogin(){
+  document.getElementById("loginModal").style.display = "none";
 }
 
 
-/* =========================
-   القائمة الهاتف
-========================= */
+/* تسجيل الدخول */
+function loginUser(){
 
-function toggleMenu(){
+  const name = document.getElementById("loginName").value.trim();
+  const phone = document.getElementById("loginPhone").value.trim();
 
-  document.getElementById("sidebar").classList.toggle("open");
-
-}
-
-
-/* =========================
-   عرض الخدمات
-========================= */
-
-function renderServices(){
-
-  const list=document.getElementById("servicesList");
-
-  if(!list)return;
-
-  const search=(document.getElementById("serviceSearch")?.value || "").toLowerCase();
-
-  const category=document.getElementById("serviceCategory")?.value || "";
-
-  const filtered=services.filter(function(service){
-
-    const text=(service.title+" "+service.description+" "+service.location).toLowerCase();
-
-    return text.includes(search) &&
-           (category==="" || service.category===category);
-
-  });
-
-  if(filtered.length===0){
-
-    list.innerHTML='<div class="empty">لا توجد خدمات مطابقة للبحث.</div>';
-
+  if(!name || !phone){
+    alert("اكتب الاسم ورقم الهاتف");
     return;
   }
 
-  list.innerHTML=filtered.map(serviceCard).join("");
+  account = {
+    name:name,
+    phone:phone,
+    city:""
+  };
 
+  localStorage.setItem("account",JSON.stringify(account));
+
+  document.getElementById("userName").value = name;
+  document.getElementById("userPhone").value = phone;
+
+  closeLogin();
+
+  alert("تم تسجيل الدخول بنجاح ✅");
+
+  showPage("accountPage");
 }
 
 
-function serviceCard(service){
+/* حفظ الحساب */
+function saveAccount(){
 
-  const fav=favorites.includes(service.id);
+  const name = document.getElementById("userName").value.trim();
+  const phone = document.getElementById("userPhone").value.trim();
+  const city = document.getElementById("userCity").value.trim();
 
-  return `
-
-    <div class="card">
-
-      <h3>${escapeHTML(service.title)}</h3>
-
-      <p class="muted">
-        📂 ${escapeHTML(service.category)}
-      </p>
-
-      <p>
-        📍 ${escapeHTML(service.location)}
-      </p>
-
-      <p>
-        ${escapeHTML(service.description)}
-      </p>
-
-      <p>
-        👤 ${escapeHTML(service.provider || "مقدم خدمة")}
-      </p>
-
-      <p class="price">
-        ${Number(service.price).toLocaleString("ar-DZ")} دج
-      </p>
-
-      <div style="display:flex;gap:7px;flex-wrap:wrap">
-
-        <button class="btn green" onclick="orderService(${service.id})">
-          طلب الخدمة
-        </button>
-
-        <button class="btn ${fav ? "red" : "gold"}"
-                onclick="toggleFavorite(${service.id})">
-          ${fav ? "❤️ محفوظة" : "♡ مفضلة"}
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================
-   الرئيسية
-========================= */
-
-function renderHome(){
-
-  const box=document.getElementById("homeServices");
-
-  if(!box)return;
-
-  box.innerHTML=services.slice(0,6).map(serviceCard).join("");
-
-  document.getElementById("servicesCount").textContent=services.length;
-
-  document.getElementById("ordersCount").textContent=orders.length;
-
-  document.getElementById("providersCount").textContent=
-    new Set(services.map(s=>s.provider)).size;
-
-}
-
-
-/* =========================
-   البحث من الرئيسية
-========================= */
-
-function searchFromHome(){
-
-  const value=document.getElementById("homeSearch").value;
-
-  document.getElementById("serviceSearch").value=value;
-
-  showPage("services");
-
-  renderServices();
-
-}
-
-
-/* =========================
-   المفضلة
-========================= */
-
-function toggleFavorite(id){
-
-  if(favorites.includes(id)){
-
-    favorites=favorites.filter(x=>x!==id);
-
-  }else{
-
-    favorites.push(id);
-
-  }
-
-  saveData();
-
-  renderAll();
-
-}
-
-
-function renderFavorites(){
-
-  const box=document.getElementById("favoritesList");
-
-  if(!box)return;
-
-  const favServices=services.filter(s=>favorites.includes(s.id));
-
-  if(favServices.length===0){
-
-    box.innerHTML='<div class="empty">لم تضف أي خدمة إلى المفضلة بعد ❤️</div>';
-
+  if(!name || !phone){
+    alert("اكتب الاسم ورقم الهاتف");
     return;
   }
 
-  box.innerHTML='<div class="cards">'+
-    favServices.map(serviceCard).join("")+
-    '</div>';
+  account = {
+    name:name,
+    phone:phone,
+    city:city
+  };
 
+  localStorage.setItem("account",JSON.stringify(account));
+
+  alert("تم حفظ معلومات الحساب ✅");
 }
 
 
-/* =========================
-   نشر خدمة
-========================= */
-
+/* نشر خدمة */
 function publishService(){
 
-  if(!currentUser){
+  const title =
+    document.getElementById("serviceTitle").value.trim();
 
-    showNotice(
-      "publishNotice",
-      "يجب تسجيل الدخول أولاً حتى تتمكن من نشر خدمة.",
-      "error"
-    );
+  const category =
+    document.getElementById("serviceCategory").value;
 
-    return;
-  }
+  const wilaya =
+    document.getElementById("serviceWilaya").value;
 
-  const title=document.getElementById("serviceTitle").value.trim();
+  const price =
+    document.getElementById("servicePrice").value;
 
-  const category=document.getElementById("serviceCat").value;
+  const description =
+    document.getElementById("serviceDescription").value.trim();
 
-  const price=document.getElementById("servicePrice").value;
 
-  const location=document.getElementById("serviceLocation").value.trim();
+  if(!title || !category || !wilaya || !price || !description){
 
-  const description=document.getElementById("serviceDescription").value.trim();
-
-  if(!title || !price || !location || !description){
-
-    showNotice(
-      "publishNotice",
-      "يرجى ملء جميع المعلومات.",
-      "error"
-    );
+    alert("أكمل جميع معلومات الخدمة");
 
     return;
   }
 
-  const newService={
+
+  const service = {
 
     id:Date.now(),
 
@@ -978,212 +661,550 @@ function publishService(){
 
     category:category,
 
-    price:Number(price),
+    wilaya:wilaya,
 
-    location:location,
+    price:price,
 
     description:description,
 
-    provider:currentUser.name
+    owner:account ? account.name : "مستخدم",
+
+    date:new Date().toLocaleDateString("ar-DZ")
 
   };
 
-  services.unshift(newService);
 
-  saveData();
+  services.push(service);
 
-  document.getElementById("serviceTitle").value="";
-
-  document.getElementById("servicePrice").value="";
-
-  document.getElementById("serviceLocation").value="";
-
-  document.getElementById("serviceDescription").value="";
-
-  showNotice(
-    "publishNotice",
-    "تم نشر خدمتك بنجاح ✅",
-    "success"
+  localStorage.setItem(
+    "services",
+    JSON.stringify(services)
   );
 
-  renderAll();
 
+  document.getElementById("serviceTitle").value = "";
+  document.getElementById("serviceCategory").value = "";
+  document.getElementById("serviceWilaya").value = "";
+  document.getElementById("servicePrice").value = "";
+  document.getElementById("serviceDescription").value = "";
+
+
+  updateStats();
+
+  alert("تم نشر الخدمة بنجاح ✅");
+
+  showPage("searchPage");
+
+  displayServices(services);
 }
 
 
-/* =========================
-   طلب الخدمة
-========================= */
+/* عرض الخدمات */
+function displayServices(list){
 
-function orderService(id){
+  const results =
+    document.getElementById("searchResults");
 
-  if(!currentUser){
+  if(!list.length){
 
-    showPage("login");
-
-    showNotice(
-      "authNotice",
-      "سجل الدخول أولاً حتى تتمكن من طلب الخدمة.",
-      "error"
-    );
+    results.innerHTML = `
+      <div style="
+      padding:20px;
+      background:#f4f7fb;
+      border-radius:12px;
+      text-align:center;">
+        لا توجد خدمات حالياً.
+      </div>
+    `;
 
     return;
   }
 
-  const service=services.find(s=>s.id===id);
 
-  if(!service)return;
+  results.innerHTML = list.map(service => `
 
-  const order={
+    <div style="
+      border:1px solid #e1e6ed;
+      border-radius:15px;
+      padding:18px;
+      margin-bottom:12px;
+      background:white;
+    ">
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        gap:10px;
+        flex-wrap:wrap;
+      ">
+
+        <div>
+
+          <h3 style="margin-bottom:8px;">
+            ${service.title}
+          </h3>
+
+          <p style="color:#687386;">
+            ${service.description}
+          </p>
+
+          <p style="margin-top:10px;">
+            📂 ${service.category}
+            &nbsp; | &nbsp;
+            📍 ${service.wilaya}
+          </p>
+
+          <p style="
+            margin-top:8px;
+            color:#0756a8;
+            font-weight:bold;
+          ">
+            💰 ${service.price} دج
+          </p>
+
+        </div>
+
+
+        <div style="display:flex;gap:7px;align-items:flex-start;">
+
+          <button
+            onclick="addFavorite(${service.id})"
+            style="
+            border:0;
+            background:#fff0f0;
+            color:#c62828;
+            padding:10px;
+            border-radius:9px;
+            ">
+            ❤️
+          </button>
+
+          <button
+            onclick="requestService(${service.id})"
+            style="
+            border:0;
+            background:#0756a8;
+            color:white;
+            padding:10px 15px;
+            border-radius:9px;
+            font-weight:bold;
+            ">
+            طلب الخدمة
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `).join("");
+}
+
+
+/* البحث */
+function searchServices(){
+
+  const text =
+    document.getElementById("pageSearchInput")
+    .value
+    .trim()
+    .toLowerCase();
+
+  const category =
+    document.getElementById("pageCategory").value;
+
+  const wilaya =
+    document.getElementById("pageWilaya").value;
+
+
+  const result = services.filter(service => {
+
+    const matchText =
+      !text ||
+      service.title.toLowerCase().includes(text) ||
+      service.description.toLowerCase().includes(text);
+
+    const matchCategory =
+      !category ||
+      service.category === category;
+
+    const matchWilaya =
+      !wilaya ||
+      service.wilaya === wilaya;
+
+    return matchText &&
+           matchCategory &&
+           matchWilaya;
+
+  });
+
+
+  displayServices(result);
+}
+
+
+/* إضافة للمفضلة */
+function addFavorite(id){
+
+  const service =
+    services.find(item => item.id === id);
+
+  if(!service) return;
+
+
+  if(!favorites.some(item => item.id === id)){
+
+    favorites.push(service);
+
+    localStorage.setItem(
+      "favorites",
+      JSON.stringify(favorites)
+    );
+
+    alert("تمت إضافة الخدمة للمفضلة ❤️");
+
+  }else{
+
+    alert("الخدمة موجودة في المفضلة");
+
+  }
+
+  displayFavorites();
+}
+
+
+/* عرض المفضلة */
+function displayFavorites(){
+
+  const box =
+    document.getElementById("favoritesList");
+
+
+  if(!favorites.length){
+
+    box.innerHTML =
+      `<p style="color:#687386;">
+        لا توجد خدمات مفضلة حالياً.
+      </p>`;
+
+    return;
+  }
+
+
+  box.innerHTML = favorites.map(service => `
+
+    <div style="
+      border:1px solid #e1e6ed;
+      border-radius:12px;
+      padding:15px;
+      margin-bottom:10px;
+    ">
+
+      <strong>${service.title}</strong>
+
+      <p style="color:#687386;margin-top:6px;">
+        ${service.wilaya} — ${service.price} دج
+      </p>
+
+    </div>
+
+  `).join("");
+}
+
+
+/* طلب خدمة */
+function requestService(id){
+
+  const service =
+    services.find(item => item.id === id);
+
+  if(!service) return;
+
+
+  const order = {
 
     id:Date.now(),
 
     serviceId:service.id,
 
-    title:service.title,
+    serviceTitle:service.title,
 
     price:service.price,
 
-    provider:service.provider,
-
-    client:currentUser.name,
+    date:new Date().toLocaleDateString("ar-DZ"),
 
     status:"جديد"
 
   };
 
-  orders.unshift(order);
 
-  saveData();
+  orders.push(order);
 
-  alert("تم إرسال طلب الخدمة بنجاح ✅");
+  localStorage.setItem(
+    "orders",
+    JSON.stringify(orders)
+  );
 
-  showPage("orders");
+
+  alert("تم إرسال طلب الخدمة ✅");
+
+  displayOrders();
+
+  showPage("ordersPage");
+}
+
+
+/* عرض الطلبات */
+function displayOrders(){
+
+  const box =
+    document.getElementById("ordersList");
+
+
+  if(!orders.length){
+
+    box.innerHTML =
+      `<p style="color:#687386;">
+        لا توجد طلبات حالياً.
+      </p>`;
+
+    return;
+  }
+
+
+  box.innerHTML = orders.map(order => `
+
+    <div style="
+      border:1px solid #e1e6ed;
+      border-radius:12px;
+      padding:15px;
+      margin-bottom:10px;
+    ">
+
+      <strong>${order.serviceTitle}</strong>
+
+      <p style="margin-top:6px;">
+        💰 ${order.price} دج
+      </p>
+
+      <p style="color:#16823b;margin-top:5px;">
+        الحالة: ${order.status}
+      </p>
+
+      <small style="color:#687386;">
+        ${order.date}
+      </small>
+
+    </div>
+
+  `).join("");
+}
+
+
+/* التنقل بين الصفحات */
+function showPage(pageId){
+
+  document.querySelectorAll(".page-box")
+    .forEach(page => {
+      page.style.display = "none";
+    });
+
+
+  document.querySelectorAll(".menu button")
+    .forEach(button => {
+      button.classList.remove("active");
+    });
+
+
+  const page =
+    document.getElementById(pageId);
+
+  if(page){
+    page.style.display = "block";
+  }
+
+
+  const appPages =
+    document.getElementById("appPages");
+
+  if(appPages){
+    appPages.style.display = "block";
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+
+/* الإحصائيات */
+function updateStats(){
+
+  document.querySelectorAll(".stat-number")[0]
+    .textContent = services.length;
+
+  document.querySelectorAll(".stat-number")[1]
+    .textContent = orders.length;
+
+  document.querySelectorAll(".stat-number")[2]
+    .textContent = services.length;
 
 }
 
 
-/* =========================
-   الطلبات
-========================= */
+/* حذف البيانات */
+function clearData(){
 
-function renderOrders(){
+  const ok =
+    confirm("هل تريد حذف البيانات من هذا الهاتف؟");
 
-  const box=document.getElementById("ordersList");
+  if(!ok) return;
 
-  if(!box)return;
+  localStorage.removeItem("services");
+  localStorage.removeItem("orders");
+  localStorage.removeItem("favorites");
+  localStorage.removeItem("account");
 
-  if(!currentUser){
+  services = [];
+  orders = [];
+  favorites = [];
+  account = null;
 
-    box.innerHTML=`
+  updateStats();
 
-      <div class="empty">
+  displayServices([]);
+  displayOrders();
+  displayFavorites();
 
-        يجب تسجيل الدخول لعرض طلباتك.
+  alert("تم حذف البيانات");
+}
 
-        <br><br>
 
-        <button class="btn blue" onclick="showPage('login')">
-          تسجيل الدخول
-        </button>
+/* تشغيل المنصة */
+function initializeApp(){
 
-      </div>
+  updateStats();
 
-    `;
+  displayServices(services);
 
-    return;
+  displayOrders();
+
+  displayFavorites();
+
+
+  if(account){
+
+    document.getElementById("userName").value =
+      account.name || "";
+
+    document.getElementById("userPhone").value =
+      account.phone || "";
+
+    document.getElementById("userCity").value =
+      account.city || "";
+
   }
-
-  const myOrders=orders.filter(o=>o.client===currentUser.name);
-
-  if(myOrders.length===0){
-
-    box.innerHTML='<div class="empty">لا توجد لديك طلبات حالياً.</div>';
-
-    return;
-  }
-
-  box.innerHTML=`
-
-    <div class="cards">
-
-      ${myOrders.map(function(order){
-
-        return `
-
-          <div class="card">
-
-            <h3>${escapeHTML(order.title)}</h3>
-
-            <p>👤 مقدم الخدمة: ${escapeHTML(order.provider)}</p>
-
-            <p class="price">
-              ${Number(order.price).toLocaleString("ar-DZ")} دج
-            </p>
-
-            <p>
-              الحالة:
-              <strong>${escapeHTML(order.status)}</strong>
-            </p>
-
-          </div>
-
-        `;
-
-      }).join("")}
-
-    </div>
-
-  `;
 
 }
 
 
-/* =========================
-   الحساب
-========================= */
+/* أزرار القائمة */
+document.querySelectorAll(".menu button")
+.forEach((button,index) => {
 
-function renderProfile(){
+  button.addEventListener("click",function(){
 
-  const box=document.getElementById("profileContent");
+    if(index === 0){
 
-  if(!box)return;
+      location.reload();
 
-  if(!currentUser){
+    }
 
-    box.innerHTML=`
+    if(index === 1){
 
-      <div class="empty">
+      showPage("searchPage");
+      displayServices(services);
 
-        <h3>أنت غير مسجل الدخول</h3>
+    }
 
-        <button class="btn blue" onclick="showPage('login')">
-          تسجيل الدخول
-        </button>
+    if(index === 2){
 
-      </div>
+      showPage("publishPage");
 
-    `;
+    }
 
-    return;
-  }
+    if(index === 3){
 
-  const initial=currentUser.name.charAt(0);
+      showPage("ordersPage");
+      displayOrders();
 
-  box.innerHTML=`
+    }
 
-    <div class="profile">
+    if(index === 4){
 
-      <div class="avatar">${escapeHTML(initial)}</div>
+      showPage("favoritesPage");
+      displayFavorites();
 
-      <div>
+    }
 
-        <h2>${escapeHTML(currentUser.name)}</h2>
+    if(index === 5){
 
-        <p class="muted">${escapeHTML(currentUser.email)}</p>
+      showPage("notificationsPage");
 
-      </div>
+    }
 
-    </div>
+    if(index === 6){
 
-    <div class="for
+      showPage("accountPage");
+
+    }
+
+    if(index === 7){
+
+      showPage("settingsPage");
+
+    }
+
+  });
+
+});
+
+
+/* زر الدخول في الأعلى */
+document.querySelectorAll(".top-btn")[0]
+.addEventListener("click",openLogin);
+
+
+/* زر الحساب الجديد */
+document.querySelectorAll(".top-btn")[1]
+.addEventListener("click",openLogin);
+
+
+/* أزرار الصفحة الرئيسية */
+document.querySelectorAll(".hero-btn")[0]
+.addEventListener("click",function(){
+
+  showPage("searchPage");
+  displayServices(services);
+
+});
+
+
+document.querySelectorAll(".hero-btn")[1]
+.addEventListener("click",function(){
+
+  showPage("publishPage");
+
+});
+
+
+/* تشغيل */
+initializeApp();
+
+</script>
+
+</body>
+</html>
